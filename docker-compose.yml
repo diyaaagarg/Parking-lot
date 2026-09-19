@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  db:
+    image: timescale/timescaledb-ha:pg15-latest
+    container_name: spip_db
+    environment:
+      POSTGRES_DB: spip_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: securepassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
